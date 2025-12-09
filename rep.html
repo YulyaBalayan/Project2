@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы - Гостиница "Уют"</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+        }
+        
+        .custom-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container-main {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .review-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            height: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #007bff;
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .review-rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .review-text {
+            color: #666;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .review-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+        
+        .review-tags {
+            margin-top: 10px;
+        }
+        
+        .review-tags .badge {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .container-main {
+                padding: 20px 15px;
+            }
+            
+            .display-4 {
+                font-size: 2rem;
+            }
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .rating-5 { color: #28a745; }
+        .rating-4 { color: #17a2b8; }
+        .rating-3 { color: #ffc107; }
+        .rating-2 { color: #fd7e14; }
+        .rating-1 { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-header sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-house-heart"></i> Гостиница "Уют"
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+       <li class="nav-item">
+    <a class="nav-link" href="index.html">
+        <img src="home.jpg" alt="Home" style="width: 20px; height: 20px;">
+    </a>
+</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rooms.html">Номера</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Галерея</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="rep.html">Отзывы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="container-main">
+            <h1 class="display-4 text-center mb-4">Отзывы наших гостей</h1>
+            <p class="text-center text-muted mb-5">Более 500 положительных отзывов от довольных клиентов</p>
+            
+            <!-- Блоки отзывов (12 повторений с вариациями) -->
+            <div class="row">
+                <!-- Отзыв 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Алексей" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Алексей Иванов</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <span class="rating-5 ms-2">5.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Прекрасный отель в центре города! Номер люкс был просто шикарным, вид из окна потрясающий. Персонал очень внимательный и отзывчивый."</p>
+                            <div class="review-tags">
+                                <span class="badge bg-primary">Люксовый номер</span>
+                                <span class="badge bg-success">Центр города</span>
+                            </div>
+                            <div class="review-date">15 октября 2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Мария" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Мария Петрова</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <span class="rating-4 ms-2">4.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Отличный SPA-комплекс! Прошла курс массажей, почувствовала себя заново рожденной. Обслуживание на высшем уровне, рекомендую всем."</p>
+                            <div class="review-tags">
+                                <span class="badge bg-info">SPA-услуги</span>
+                                <span class="badge bg-warning">Массаж</span>
+                            </div>
+                            <div class="review-date">12 октября 2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Дмитрий" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Дмитрий Смирнов</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star"></i>
+                                        <span class="rating-4 ms-2">4.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Провели деловую встречу в конференц-зале. Всё оборудование работало отлично, техническая поддержка оперативно решала вопросы."</p>
+                            <div class="review-tags">
+                                <span class="badge bg-secondary">Бизнес-услуги</span>
+                                <span class="badge bg-dark">Конференц-зал</span>
+                            </div>
+                            <div class="review-date">10 октября 2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Елена" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Елена Козлова</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <span class="rating-5 ms-2">5.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Ресторан просто волшебный! Шеф-повар настоящий мастер своего дела. Особенно понравились десерты - невероятно вкусно!"</p>
+                            <div class="review-tags">
+                                <span class="badge bg-danger">Ресторан</span>
+                                <span class="badge bg-success">Кухня</span>
+                            </div>
+                            <div class="review-date">8 октября 2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Сергей" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Сергей Волков</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <span class="rating-5 ms-2">5.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Экономный номер превзошел все ожидания. Чисто, уютно, всё необходимое есть. Отличное соотношение цены и качества."</p>
+                            <div class="review-tags">
+                                <span class="badge bg-secondary">Эконом номер</span>
+                                <span class="badge bg-primary">Цена/качество</span>
+                            </div>
+                            <div class="review-date">5 октября 2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Анна" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Анна Морозова</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <span class="rating-4 ms-2">4.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Отличное расположение отеля! В пешей доступности все достопримечательности. Парковка удобная, всегда есть места."</p>
+                            <div class="review-tags">
+                                <span class="badge bg-info">Расположение</span>
+                                <span class="badge bg-success">Парковка</span>
+                            </div>
+                            <div class="review-date">3 октября 2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 7 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/men/29.jpg" alt="Игорь" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Игорь Новиков</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star"></i>
+                                        <span class="rating-4 ms-2">4.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Стандартный номер очень комфортный. Кровать удобная, ванная чистая. Wi-Fi работает стабильно, что важно для работы."</p>
+                            <div class="review-tags">
+                                <span class="badge bg-primary">Стандартный номер</span>
+                                <span class="badge bg-info">Wi-Fi</span>
+                            </div>
+                            <div class="review-date">1 октября 2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 8 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/women/56.jpg" alt="Ольга" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Ольга Семенова</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <span class="rating-5 ms-2">5.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Обслуживание на высоте! Персонал всегда готов помочь. Особенно понравился трансфер из аэропорта - вовремя и комфортно."</p>
+                            <div class="review-tags">
+                                <span class="badge bg-warning">Трансфер</span>
+                                <span class="badge bg-success">Сервис</span>
+                            </div>
+                            <div class="review-date">28 сентября 2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 9 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Андрей" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Андрей Кузнецов</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <span class="rating-4 ms-2">4.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Завтраки в ресторане разнообразные и вкусные. Особенно понравились свежевыжатые соки и выпечка. Начинаешь день с удовольствием!"</p>
+                            <div class="review-tags">
+                                <span class="badge bg-danger">Завтрак</span>
+                                <span class="badge bg-success">Ресторан</span>
+                            </div>
+                            <div class="review-date">25 сентября 2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 10 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/women/62.jpg" alt="Татьяна" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Татьяна Федорова</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star"></i>
+                                        <span class="rating-4 ms-2">4.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Провели выходные в этом отеле. Очень понравилась чистота и порядок. Уборка ежедневная, постельное белье свежее."</p>
+                            <div class="review-tags">
+                                <span class="badge bg-info">Чистота</span>
+                                <span class="badge bg-primary">Уборка</span>
+                            </div>
+                            <div class="review-date">22 сентября 2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 11 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/men/38.jpg" alt="Виктор" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Виктор Павлов</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <span class="rating-5 ms-2">5.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Барная карта впечатляет! Бармены знают свое дело, коктейли готовят отлично. Вечерняя атмосфера в баре очень приятная."</p>
+                            <div class="review-tags">
+                                <span class="badge bg-dark">Бар</span>
+                                <span class="badge bg-warning">Коктейли</span>
+                            </div>
+                            <div class="review-date">20 сентября 2024</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 12 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="review-card card">
+                        <div class="card-body">
+                            <div class="review-header">
+                                <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="Наталья" class="review-avatar">
+                                <div>
+                                    <h5 class="card-title mb-1">Наталья Ильина</h5>
+                                    <div class="review-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <span class="rating-4 ms-2">4.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">"Отличный семейный номер! Детям понравилось, для них даже отдельные тапочки и халаты подготовили. Спасибо за внимание к деталям!"</p>
+                            <div class="review-tags">
+                                <span class="badge bg-success">Семейный отдых</span>
+                                <span class="badge bg-info">Для детей</span>
+                            </div>
+                            <div class="review-date">18 сентября 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Форма добавления отзыва -->
+            <div class="mt-5 p-4" style="background-color: #f8f9fa; border-radius: 10px;">
+                <h3 class="mb-4">Оставить свой отзыв</h3>
+                <form id="reviewForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="name" class="form-label">Ваше имя</label>
+                            <input type="text" class="form-control" id="name" placeholder="Введите ваше имя" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Введите ваш email" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="rating" class="form-label">Оценка</label>
+                        <select class="form-select" id="rating" required>
+                            <option value="5">5 звезд - Отлично</option>
+                            <option value="4">4 звезды - Хорошо</option>
+                            <option value="3">3 звезды - Удовлетворительно</option>
+                            <option value="2">2 звезды - Плохо</option>
+                            <option value="1">1 звезда - Очень плохо</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="review" class="form-label">Ваш отзыв</label>
+                        <textarea class="form-control" id="review" rows="4" placeholder="Поделитесь вашими впечатлениями..." required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Теги (можно выбрать несколько)</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="tag1" value="Номер">
+                            <label class="form-check-label" for="tag1">Номер</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="tag2" value="Ресторан">
+                            <label class="form-check-label" for="tag2">Ресторан</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="tag3" value="SPA">
+                            <label class="form-check-label" for="tag3">SPA</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="tag4" value="Сервис">
+                            <label class="form-check-label" for="tag4">Сервис</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="tag5" value="Расположение">
+                            <label class="form-check-label" for="tag5">Расположение</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+                </form>
+            </div>
+            
+            <!-- Статистика отзывов -->
+            <div class="mt-5 text-center">
+                <h4>Статистика отзывов</h4>
+                <div class="row mt-4">
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="display-6 text-primary">526</div>
+                        <div class="text-muted">Всего отзывов</div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="display-6 text-success">4.8</div>
+                        <div class="text-muted">Средняя оценка</div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="display-6 text-info">94%</div>
+                        <div class="text-muted">Положительных</div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-3">
+                        <div class="display-6 text-warning">32</div>
+                        <div class="text-muted">Отзывов за месяц</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Навигация -->
+            <div class="text-center mt-5">
+                <div class="d-grid gap-2 d-md-block">
+                    <a href="index.html" class="btn btn-primary btn-lg me-md-3 mb-2">
+                        <i class="bi bi-house"></i> На главную
+                    </a>
+                    <a href="contacts.html" class="btn btn-success btn-lg mb-2">
+                        <i class="bi bi-chat-left-text"></i> Связаться с нами
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Гостиница "Уют"</h5>
+                    <p>Современная гостиница в центре города с комфортабельными номерами и высоким уровнем обслуживания.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Быстрые ссылки</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light">На главную</a></li>
+                        <li><a href="rooms.html" class="text-light">Номера</a></li>
+                        <li><a href="services.html" class="text-light">Услуги</a></li>
+                        <li><a href="gallery.html" class="text-light">Галерея</a></li>
+                        <li><a href="contacts.html" class="text-light">Контакты</a></li>
+                        <li><a href="reviews.html" class="text-light">Отзывы</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><i class="bi bi-geo-alt"></i> ул. Центральная, д. 123, г. Москва</p>
+                    <p><i class="bi bi-telephone"></i> +7 (495) 123-45-67</p>
+                    <p><i class="bi bi-envelope"></i> info@hotel-uyut.ru</p>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">© 2024 Гостиница "Уют". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(window.innerWidth < 992) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                });
+            });
+            
+            const reviewForm = document.getElementById('reviewForm');
+            reviewForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Спасибо за ваш отзыв! Он будет опубликован после проверки модератором.');
+                reviewForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>

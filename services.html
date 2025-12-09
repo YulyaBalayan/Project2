@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги - Гостиница "Уют"</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+        }
+        
+        .custom-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container-main {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .internal-nav {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #007bff;
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .service-thumbnail {
+            width: 120px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 3px solid #007bff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .service-thumbnail:hover {
+            transform: scale(1.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .service-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #007bff;
+        }
+        
+        table {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+        }
+        
+        table td {
+            padding: 15px;
+            vertical-align: middle;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        table tr:hover {
+            background-color: #e9ecef;
+        }
+        
+        .price-badge {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+        
+        .section-description {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .container-main {
+                padding: 20px 15px;
+            }
+            
+            .display-4 {
+                font-size: 2rem;
+            }
+            
+            .service-image {
+                height: 150px;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            .service-thumbnail {
+                width: 80px;
+                height: 60px;
+            }
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .external-link {
+            color: #28a745;
+            font-weight: 500;
+        }
+        
+        .external-link:hover {
+            color: #218838;
+            text-decoration: underline;
+        }
+        
+        .category-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-header sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-house-heart"></i> Гостиница "Уют"
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+         <li class="nav-item">
+    <a class="nav-link" href="index.html">
+        <img src="home.jpg" alt="Home" style="width: 20px; height: 20px;">
+    </a>
+</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rooms.html">Номера</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Галерея</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rep.html">Отзывы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="container-main">
+            <h1 class="display-4 text-center mb-4">Наши услуги</h1>
+            
+            <div class="internal-nav">
+                <div class="row text-center">
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="#restaurant" class="btn btn-outline-primary w-100">Ресторан</a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="#spa" class="btn btn-outline-primary w-100">SPA-услуги</a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="#conference" class="btn btn-outline-primary w-100">Конференц-залы</a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="#top" class="btn btn-outline-success w-100">К началу</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="restaurant" class="service-section">
+                <h2 class="mb-4">Ресторан "Гурман"</h2>
+                <p class="section-description">Наш ресторан предлагает изысканные блюда европейской и русской кухни, приготовленные из свежих местных продуктов профессиональными шеф-поварами.</p>
+                
+                <div class="row align-items-center mb-4">
+                    <div class="col-lg-6 mb-4">
+                        <a href="https://i.pinimg.com/originals/c1/92/09/c19209766d6c7189e405bd05b910a21f.jpg" target="_blank">
+                            <img src="rest.jpg" alt="Ресторан" class="service-image">
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4><i class="bi bi-egg-fried text-primary"></i> Часы работы:</h4>
+                        <ul>
+                            <li><strong>Завтрак:</strong> 7:00 - 11:00</li>
+                            <li><strong>Обед:</strong> 12:00 - 16:00</li>
+                            <li><strong>Ужин:</strong> 18:00 - 23:00</li>
+                            <li><strong>Бар:</strong> 16:00 - 02:00</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Завтрак</h5>
+                        <ul>
+                            <li>Континентальный завтрак</li>
+                            <li>Английский завтрак</li>
+                            <li>Диетический завтрак</li>
+                            <li>Детское меню</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Обед</h5>
+                        <ul>
+                            <li>Бизнес-ланч</li>
+                            <li>Вегетарианские блюда</li>
+                            <li>Салаты и супы</li>
+                            <li>Национальная кухня</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Ужин</h5>
+                        <ul>
+                            <li>Авторская кухня</li>
+                            <li>Международная кухня</li>
+                            <li>Десерты и выпечка</li>
+                            <li>Винная карта</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="spa" class="service-section">
+                <h2 class="mb-4">SPA-услуги</h2>
+                <p class="section-description">Современный SPA-комплекс с профессиональными мастерами, предлагающий широкий спектр процедур для релаксации и восстановления сил.</p>
+                
+                <div class="row align-items-center mb-4">
+                    <div class="col-lg-6 mb-4">
+                        <a href="https://selectitaly.com/images/0241_35279_417443118_l.jpg" target="_blank">
+                            <img src="spa.jpg" alt="SPA" class="service-image">
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex gap-2 flex-wrap">
+                            <span class="badge bg-primary">Массаж</span>
+                            <span class="badge bg-primary">Косметология</span>
+                            <span class="badge bg-primary">Сауна</span>
+                            <span class="badge bg-primary">Бассейн</span>
+                            <span class="badge bg-primary">Хаммам</span>
+                            <span class="badge bg-primary">Йога</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5><i class="bi bi-hand-index"></i> Массаж</h5>
+                        <ul>
+                            <li>Классический массаж</li>
+                            <li>Антицеллюлитный массаж</li>
+                            <li>Релакс массаж</li>
+                            <li>Тайский массаж</li>
+                            <li>Спортивный массаж</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5><i class="bi bi-droplet"></i> Косметология</h5>
+                        <ul>
+                            <li>Чистка лица</li>
+                            <li>Маски для лица</li>
+                            <li>Уход за телом</li>
+                            <li>SPA-программы</li>
+                            <li>Обертывания</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5><i class="bi bi-thermometer-sun"></i> Водные процедуры</h5>
+                        <ul>
+                            <li>Сауна финская</li>
+                            <li>Хаммам турецкий</li>
+                            <li>Джакузи с гидромассажем</li>
+                            <li>Бассейн с подогревом</li>
+                            <li>Контрастные ванны</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="conference" class="service-section">
+                <h2 class="mb-4">Конференц-залы</h2>
+                <p class="section-description">Современные конференц-залы, оборудованные по последнему слову техники, идеально подходят для деловых встреч, семинаров и презентаций.</p>
+                
+                <div class="row align-items-center mb-4">
+                    <div class="col-lg-6 mb-4">
+                        <a href="https://mantera.ru/upload/iblock/2c6/3ckfudwvmyo7lb3r5of9r4atmnr0rxfq.webp" target="_blank">
+                            <img src="confa.jpg" alt="Конференц-зал" class="service-image">
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>Оборудование:</h4>
+                        <ul>
+                            <li>Проекторы и экраны</li>
+                            <li>Звуковое оборудование</li>
+                            <li>Wi-Fi высокоскоростной</li>
+                            <li>Флипчарты и доски</li>
+                            <li>Микрофоны и система голосования</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="row text-center">
+                    <div class="col-md-3 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="category-icon">🏢</div>
+                                <h5>Большой зал</h5>
+                                <p>до 100 человек</p>
+                                <span class="price-badge">8 000 ₽/час</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="category-icon">🏢</div>
+                                <h5>Средний зал</h5>
+                                <p>до 50 человек</p>
+                                <span class="price-badge">5 000 ₽/час</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="category-icon">🏢</div>
+                                <h5>Малый зал</h5>
+                                <p>до 20 человек</p>
+                                <span class="price-badge">3 000 ₽/час</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="category-icon">🏢</div>
+                                <h5>VIP-зал</h5>
+                                <p>до 10 человек</p>
+                                <span class="price-badge">6 000 ₽/час</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <h2 class="mb-4">Прайс-лист услуг</h2>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Услуга</th>
+                                <th>Изображение</th>
+                                <th>Продолжительность</th>
+                                <th>Цена</th>
+                                <th>Заказ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Массаж классический</strong></td>
+                                <td>
+                                    <a href="mass.jpg" target="_blank">
+                                        <img src="mass.jpg" alt="Массаж" class="service-thumbnail">
+                                    </a>
+                                </td>
+                                <td>60 минут</td>
+                                <td class="price-badge">3 000 ₽</td>
+                                <td><a href="contacts.html#booking" class="btn btn-sm btn-primary">Заказать</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Бизнес-ланч</strong></td>
+                                <td>
+                                    <a href="lunch.jpg" target="_blank">
+                                        <img src="lunch.jpg" alt="Ланч" class="service-thumbnail">
+                                    </a>
+                                </td>
+                                <td>45 минут</td>
+                                <td class="price-badge">1 500 ₽</td>
+                                <td><a href="contacts.html#booking" class="btn btn-sm btn-primary">Заказать</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Конференц-зал</strong></td>
+                                <td>
+                                    <a href="confer.jpg" target="_blank">
+                                        <img src="confer.jpg" alt="Зал" class="service-thumbnail">
+                                    </a>
+                                </td>
+                                <td>4 часа</td>
+                                <td class="price-badge">8 000 ₽</td>
+                                <td><a href="contacts.html#booking" class="btn btn-sm btn-primary">Заказать</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Трансфер</strong></td>
+                                <td>
+                                    <a href="transfer.jpg" target="_blank">
+                                        <img src="transfer.jpg" alt="Трансфер" class="service-thumbnail">
+                                    </a>
+                                </td>
+                                <td>30 минут</td>
+                                <td class="price-badge">2 000 ₽</td>
+                                <td><a href="contacts.html#booking" class="btn btn-sm btn-primary">Заказать</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <h2 class="mb-4">Полезные ссылки</h2>
+                <div class="row text-center">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <i class="bi bi-calendar-check text-primary fs-1 mb-3"></i>
+                                <a href="https://www.booking.com" target="_blank" class="external-link d-block">
+                                    Бронирование онлайн
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <i class="bi bi-chat-dots text-primary fs-1 mb-3"></i>
+                                <a href="https://www.tripadvisor.ru" target="_blank" class="external-link d-block">
+                                    Отзывы на TripAdvisor
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <i class="bi bi-map text-primary fs-1 mb-3"></i>
+                                <a href="https://www.google.com/maps" target="_blank" class="external-link d-block">
+                                    Карта города
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <div class="d-grid gap-2 d-md-block">
+                    <a href="#top" class="btn btn-primary btn-lg me-md-3 mb-2">
+                        <i class="bi bi-arrow-up"></i> К началу страницы
+                    </a>
+                    <a href="contacts.html" class="btn btn-success btn-lg mb-2">
+                        <i class="bi bi-chat-left-text"></i> Связаться с нами
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Гостиница "Уют"</h5>
+                    <p>Современная гостиница в центре города с комфортабельными номерами и высоким уровнем обслуживания.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Быстрые ссылки</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light">На главную</a></li>
+                        <li><a href="rooms.html" class="text-light">Номера</a></li>
+                        <li><a href="services.html" class="text-light">Услуги</a></li>
+                        <li><a href="gallery.html" class="text-light">Галерея</a></li>
+                        <li><a href="contacts.html" class="text-light">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><i class="bi bi-geo-alt"></i> ул. Центральная, д. 123, г. Москва</p>
+                    <p><i class="bi bi-telephone"></i> +7 (495) 123-45-67</p>
+                    <p><i class="bi bi-envelope"></i> info@hotel-uyut.ru</p>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">© 2024 Гостиница "Уют". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(window.innerWidth < 992) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                });
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('div[id]');
+            const navLinks = document.querySelectorAll('.internal-nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

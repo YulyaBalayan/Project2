@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Гостиница "Уют"</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+        }
+        
+        .custom-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container-main {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .internal-nav {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .form-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #28a745;
+        }
+        
+        .contact-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .contact-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .contact-thumbnail {
+            width: 120px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 3px solid #28a745;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-thumbnail:hover {
+            transform: scale(1.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        table {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+        }
+        
+        table td {
+            padding: 15px;
+            vertical-align: middle;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        table tr:hover {
+            background-color: #e9ecef;
+        }
+        
+        .section-description {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-control, .form-select {
+            border-radius: 6px;
+            border: 1px solid #ced4da;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .contact-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .container-main {
+                padding: 20px 15px;
+            }
+            
+            .display-4 {
+                font-size: 2rem;
+            }
+            
+            .contact-image {
+                height: 200px;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            .contact-thumbnail {
+                width: 80px;
+                height: 60px;
+            }
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #007bff;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-header sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-house-heart"></i> Гостиница "Уют"
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+     <li class="nav-item">
+    <a class="nav-link" href="index.html">
+        <img src="home.jpg" alt="Home" style="width: 20px; height: 20px;">
+    </a>
+</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rooms.html">Номера</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Галерея</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacts.html">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rep.html">Отзывы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="container-main">
+            <h1 class="display-4 text-center mb-4">Контакты и бронирование</h1>
+            
+            <div class="internal-nav">
+                <div class="row text-center">
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="#location" class="btn btn-outline-primary w-100">Расположение</a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="#contacts" class="btn btn-outline-primary w-100">Контакты</a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="#feedback" class="btn btn-outline-primary w-100">Обратная связь</a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="#top" class="btn btn-outline-success w-100">К началу</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="location" class="mb-5">
+                <h2 class="mb-4">Как нас найти</h2>
+                <p class="section-description">Мы расположены в самом центре Москвы, в удобной доступности от основных достопримечательностей и транспортных узлов.</p>
+                
+                <div class="row align-items-center mb-4">
+                    <div class="col-lg-6 mb-4">
+                        <a href="map.jpg" target="_blank">
+                            <img src="map.jpg" alt="Карта отеля" class="contact-image">
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-card">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4>Наш адрес</h4>
+                            <p>ул. Центральная, д. 123, г. Москва, 101000</p>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Транспорт</h5>
+                                <ul>
+                                    <li><i class="bi bi-subway"></i> Метро "Центральная"</li>
+                                    <li><i class="bi bi-bus-front"></i> Автобусы 1, 5, 12</li>
+                                    <li><i class="bi bi-car-front"></i> Парковка</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Рядом с нами</h5>
+                                <ul>
+                                    <li>Центральный парк</li>
+                                    <li>Исторический музей</li>
+                                    <li>Бизнес-центры</li>
+                                    <li>Рестораны и кафе</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contacts" class="mb-5">
+                <h2 class="mb-4">Контактная информация</h2>
+                <p class="section-description">Свяжитесь с нами любым удобным способом. Мы всегда рады помочь вам!</p>
+                
+                <div class="row mb-4">
+                    <div class="col-md-3 mb-3">
+                        <div class="contact-card">
+                            <i class="bi bi-telephone"></i>
+                            <h5>Телефон</h5>
+                            <p>+7 (495) 123-45-67</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="contact-card">
+                            <i class="bi bi-envelope"></i>
+                            <h5>Email</h5>
+                            <p>info@hotel-uyut.ru</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="contact-card">
+                            <i class="bi bi-clock"></i>
+                            <h5>Ресепшн</h5>
+                            <p>24/7</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="contact-card">
+                            <i class="bi bi-chat-left-text"></i>
+                            <h5>Поддержка</h5>
+                            <p>9:00 - 21:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Отдел</th>
+                                <th>Фото</th>
+                                <th>Телефон</th>
+                                <th>Email</th>
+                                <th>Часы работы</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Ресепшн</strong></td>
+                                <td>
+                                    <a href="recep.jpg" target="_blank">
+                                        <img src="recep.jpg" alt="Ресепшн" class="contact-thumbnail">
+                                    </a>
+                                </td>
+                                <td>+7 (495) 123-45-67</td>
+                                <td>reception@hotel-uyut.ru</td>
+                                <td>24/7</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Бронирование</strong></td>
+                                <td>
+                                    <a href="book.jpg" target="_blank">
+                                        <img src="book.jpg" alt="Бронирование" class="contact-thumbnail">
+                                    </a>
+                                </td>
+                                <td>+7 (495) 123-45-68</td>
+                                <td>booking@hotel-uyut.ru</td>
+                                <td>9:00 - 21:00</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ресторан</strong></td>
+                                <td>
+                                    <a href="res2.jpg" target="_blank">
+                                        <img src="res2.jpg" alt="Ресторан" class="contact-thumbnail">
+                                    </a>
+                                </td>
+                                <td>+7 (495) 123-45-69</td>
+                                <td>restaurant@hotel-uyut.ru</td>
+                                <td>7:00 - 23:00</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SPA-центр</strong></td>
+                                <td>
+                                    <a href="spa2.jpg" target="_blank">
+                                        <img src="spa2.jpg" alt="SPA-центр" class="contact-thumbnail">
+                                    </a>
+                                </td>
+                                <td>+7 (495) 123-45-70</td>
+                                <td>spa@hotel-uyut.ru</td>
+                                <td>8:00 - 22:00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="feedback" class="mb-5">
+                <h2 class="mb-4">Форма обратной связи</h2>
+                <p class="section-description">Поделитесь вашим мнением о нашем отеле. Ваши отзывы помогают нам становиться лучше!</p>
+                
+                <div class="form-section">
+                    <form action="https://www.bing.com/search?" id="UserEnter" name="UserEnter" target="_blank">
+                        <input type="hidden" name="q" value="hotel feedback">
+                        <input type="hidden" name="function" value="feedback">
+                        <input type="hidden" name="page_id" value="3">
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Фамилия</label>
+                                <input type="text" class="form-control" name="last_name" value="Иванов" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Имя</label>
+                                <input type="text" class="form-control" name="first_name" value="Иван" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Мобильный телефон</label>
+                                <input type="tel" class="form-control" name="mobile_phone" value="+7-900-123-45-67">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Электронная почта</label>
+                                <input type="email" class="form-control" name="email" value="client@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Тип обращения</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="request_type" value="complaint" id="complaint">
+                                <label class="form-check-label" for="complaint">Жалоба</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="request_type" value="suggestion" id="suggestion" checked>
+                                <label class="form-check-label" for="suggestion">Предложение</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="request_type" value="question" id="question">
+                                <label class="form-check-label" for="question">Вопрос</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Отделы отеля</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="reception" value="yes" id="reception" checked>
+                                <label class="form-check-label" for="reception">Ресепшн</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="restaurant" value="yes" id="restaurant">
+                                <label class="form-check-label" for="restaurant">Ресторан</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="spa" value="yes" id="spa">
+                                <label class="form-check-label" for="spa">SPA-центр</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Сообщение</label>
+                            <textarea class="form-control" name="message" rows="4">Хотел бы оставить отзыв о качестве обслуживания</textarea>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Дата отправки</label>
+                                <input type="date" class="form-control" name="message_date" value="2024-10-02">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Пароль для подтверждения</label>
+                                <input type="password" class="form-control" name="password" value="feedback123">
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex gap-3">
+                            <button type="reset" class="btn btn-secondary">Обновить форму</button>
+                            <button type="submit" class="btn btn-submit text-white">Отправить отзыв</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="booking" class="mb-5">
+                <h2 class="mb-4">Форма бронирования</h2>
+                <p class="section-description">Забронируйте номер онлайн. Мы подтвердим ваше бронирование в течение 30 минут!</p>
+                
+                <div class="form-section">
+                    <form action="https://www.bing.com/search?" id="UserEnter" name="UserEnter" target="_blank">
+                        <input type="hidden" name="q" value="hotel booking">
+                        <input type="hidden" name="function" value="booking">
+                        <input type="hidden" name="page_id" value="3">
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Фамилия гостя</label>
+                                <input type="text" class="form-control" name="guest_last_name" value="Петров" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Имя гостя</label>
+                                <input type="text" class="form-control" name="guest_first_name" value="Петр" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Количество гостей</label>
+                                <input type="number" class="form-control" name="guests_count" value="2" min="1" max="10">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Тип номера</label>
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="room_type" value="luxury" id="luxury">
+                                        <label class="form-check-label" for="luxury">Люкс</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="room_type" value="standard" id="standard" checked>
+                                        <label class="form-check-label" for="standard">Стандарт</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="room_type" value="economy" id="economy">
+                                        <label class="form-check-label" for="economy">Эконом</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Дата заезда</label>
+                                <input type="date" class="form-control" name="checkin_date" value="2024-11-01">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Дата выезда</label>
+                                <input type="date" class="form-control" name="checkout_date" value="2024-11-05">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Дополнительные услуги</label>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="breakfast" value="yes" id="breakfast" checked>
+                                        <label class="form-check-label" for="breakfast">Завтрак</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="spa" value="yes" id="booking_spa">
+                                        <label class="form-check-label" for="booking_spa">SPA</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="transfer" value="yes" id="transfer">
+                                        <label class="form-check-label" for="transfer">Трансфер</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="parking" value="yes" id="parking" checked>
+                                        <label class="form-check-label" for="parking">Парковка</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Особые пожелания</label>
+                            <textarea class="form-control" name="special_requests" rows="3">Номер с видом на парк, высокий этаж</textarea>
+                        </div>
+                        
+                        <div class="d-flex gap-3">
+                            <button type="reset" class="btn btn-secondary">Обновить форму</button>
+                            <button type="submit" class="btn btn-submit text-white">Забронировать номер</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <h3 class="mb-4">Мы в социальных сетях</h3>
+                <div class="social-links">
+                    <a href="https://vk.com/hotel-uyut" target="_blank" title="ВКонтакте">
+                        <i class="bi bi-vk"></i>
+                    </a>
+                    <a href="https://t.me/hotel_uyut" target="_blank" title="Telegram">
+                        <i class="bi bi-telegram"></i>
+                    </a>
+                    <a href="https://www.instagram.com/hotel_uyut" target="_blank" title="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/hotel.uyut" target="_blank" title="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                </div>
+                
+                <div class="mt-4">
+                    <div class="d-grid gap-2 d-md-block">
+                        <a href="#top" class="btn btn-primary btn-lg me-md-3 mb-2">
+                            <i class="bi bi-arrow-up"></i> К началу страницы
+                        </a>
+                        <a href="index.html" class="btn btn-success btn-lg mb-2">
+                            <i class="bi bi-house"></i> На главную
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Гостиница "Уют"</h5>
+                    <p>Современная гостиница в центре города с комфортабельными номерами и высоким уровнем обслуживания.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Быстрые ссылки</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light">На главную</a></li>
+                        <li><a href="rooms.html" class="text-light">Номера</a></li>
+                        <li><a href="services.html" class="text-light">Услуги</a></li>
+                        <li><a href="gallery.html" class="text-light">Галерея</a></li>
+                        <li><a href="contacts.html" class="text-light">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p><i class="bi bi-geo-alt"></i> ул. Центральная, д. 123, г. Москва</p>
+                    <p><i class="bi bi-telephone"></i> +7 (495) 123-45-67</p>
+                    <p><i class="bi bi-envelope"></i> info@hotel-uyut.ru</p>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">© 2024 Гостиница "Уют". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(window.innerWidth < 992) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                });
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('div[id]');
+            const navLinks = document.querySelectorAll('.internal-nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
